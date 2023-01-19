@@ -90,8 +90,7 @@
 .level-4-element[value="fire"]:checked:focus-visible ~ span,
 .level-4-element[value="earth"]:checked:focus-visible ~ span,
 .level-4-element:focus-visible ~ span {
-  color: #94a3b8;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #94a3b8;
 }
 
 .level-4-element:checked ~ span {
