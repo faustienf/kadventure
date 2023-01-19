@@ -1,4 +1,4 @@
-body {
+.success {
   font-size: calc(var(--size) / 2);
   text-align: center;
   font-family: "Press Start 2P", cursive;
