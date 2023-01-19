@@ -1,0 +1,128 @@
+:root {
+  --l4-size: calc(var(--size) * 1.75);
+}
+
+.level-4 {
+  animation-duration: calc(var(--speed) * 3);
+  animation-name: l4;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+  visibility: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--l4-size);
+  height: var(--size);
+  opacity: 0;
+}
+
+.level-4:focus-within {
+  animation-play-state: running;
+}
+
+.level-4:focus-within:not(:valid) .message {
+  opacity: 1;
+}
+
+.level-4:focus-within ~ .wizard {
+  left: calc(var(--gap) * 4 + var(--steps) * 3 + var(--size) + var(--l2-size));
+}
+
+.level-4:valid ~ .next,
+.level-4:valid + .steps {
+  animation-play-state: running;
+}
+
+.level-4:valid ~ .next a {
+  visibility: visible;
+}
+
+@keyframes l4 {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.level-4-elements {
+  width: var(--size);
+  height: var(--size);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  opacity: 0;
+  transition: opacity calc(var(--speed) * 1) ease-out var(--speed);
+}
+
+.level-4:focus-within .level-4-elements,
+.level-4:valid .level-4-elements {
+  opacity: 1;
+}
+
+.level-4-trigram {
+  position: relative;
+}
+
+.level-4-trigram span {
+  line-height: 1;
+  font-size: calc(var(--size) * 0.6);
+  color: #334155;
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all calc(var(--speed) / 2) ease-out;
+  transition-property: color, text-shadow;
+}
+
+.level-4-element {
+  opacity: 0;
+  position: absolute;
+}
+
+.level-4-element[value="fire"]:checked:focus-visible ~ span,
+.level-4-element[value="earth"]:checked:focus-visible ~ span,
+.level-4-element:focus-visible ~ span {
+  color: #94a3b8;
+  border-bottom: 1px solid;
+}
+
+.level-4-element:checked ~ span {
+  text-shadow: 0px 0px 10px currentColor;
+}
+
+.level-4-element[value="fire"] ~ span {
+  color: #fb923c;
+  text-shadow: 0px 0px 10px currentColor;
+}
+
+.level-4-element[value="fire"]:checked ~ span {
+  color: #334155;
+  text-shadow: none;
+}
+
+.level-4-element[value="earth"] ~ span {
+  color: #84cc16;
+  text-shadow: 0px 0px 10px currentColor;
+}
+
+.level-4-element[value="earth"]:checked ~ span {
+  color: #334155;
+  text-shadow: none;
+}
+
+.level-4-element[value="water"]:checked ~ span {
+  color: #0ea5e9;
+}
+
+.level-4-element[value="wind"]:checked ~ span {
+  color: #a5f3fc;
+  text-shadow: 0px 0px 10px #22d3ee;
+}

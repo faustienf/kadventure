@@ -1,0 +1,61 @@
+:root {
+  --steps: 30px;
+}
+
+.steps {
+  width: var(--steps);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  animation-duration: var(--speed);
+  animation-name: steps;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+@keyframes steps {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.steps > li {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  animation-name: step;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.steps > li:nth-child(1) {
+  animation-delay: 0;
+}
+
+.steps > li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.steps > li:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes step {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}

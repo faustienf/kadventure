@@ -1,0 +1,139 @@
+:root {
+  --size: 56px;
+  --level-size: 12px;
+  --gap: 8px;
+  --speed: 0.4s;
+}
+
+* {
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+*::selection {
+  color: transparent;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: white;
+  min-height: 100vh;
+  background-image: url("https://cdna.artstation.com/p/assets/images/images/024/903/746/large/sebastian-coria-1-1.jpg?1583915011");
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #050a0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  padding: var(--size);
+  border-radius: 24px;
+  background-color: #111;
+}
+
+section {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.wizard {
+  width: var(--size);
+  height: var(--size);
+  font-size: var(--size);
+  line-height: 1;
+  position: absolute;
+  transition: left var(--speed) ease-out;
+  left: calc(var(--size) / 2 * -1);
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.level {
+  width: var(--level-size);
+  height: var(--level-size);
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  display: inline-flex;
+  text-align: center;
+  vertical-align: middle;
+  color: transparent;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.level::selection {
+  color: transparent;
+}
+
+.level:focus {
+  outline: none;
+}
+
+.refresh {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.died {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  color: #7f1d1d;
+  display: flex;
+  font-family: "Times New Roman", Times, serif;
+  place-items: center;
+  place-content: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: calc(var(--size) * 1.5);
+  z-index: 99999;
+}
+
+.died::before {
+  content: "Потрачено";
+  letter-spacing: 8px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all calc(var(--speed) * 8) ease-out;
+}
+
+.died:target,
+.died:focus-visible {
+  opacity: 1;
+}
+
+.died:target::before,
+.died:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.died:focus-visible ~ * {
+  display: none;
+}

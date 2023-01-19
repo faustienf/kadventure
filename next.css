@@ -1,0 +1,41 @@
+.next {
+  display: flex;
+  width: var(--size);
+  height: calc(var(--size) * 1.5);
+  border-top-left-radius: var(--size);
+  border-top-right-radius: var(--size);
+  color: #3f3f46;
+  border: 2px solid;
+  animation-name: next;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+.next:focus-within {
+  animation-play-state: running;
+}
+
+.next a {
+  visibility: hidden;
+}
+
+.next:focus-within ~ .wizard {
+  left: calc(
+    var(--gap) * 4 + var(--steps) * 4 + var(--size) + var(--l2-size) +
+      var(--l4-size) + var(--size) / 2
+  );
+}
+
+@keyframes next {
+  from {
+    color: #3f3f46;
+  }
+  to {
+    color: #f0f9ff;
+    background-color: currentColor;
+    box-shadow: 0 0 16px currentColor;
+  }
+}

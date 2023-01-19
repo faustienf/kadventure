@@ -1,0 +1,143 @@
+:root {
+  --l2-size: calc(var(--size) * 1.25);
+}
+
+.level-2 {
+  animation-duration: calc(var(--speed) * 3);
+  animation-name: l2;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+  visibility: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--l2-size);
+  height: var(--size);
+}
+
+@keyframes l2 {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.level-2:focus-within {
+  animation-play-state: running;
+}
+
+.level-2:focus-within ~ .wizard {
+  left: calc(var(--gap) * 2 + var(--steps) + var(--size) / 2);
+}
+
+.level-2:valid + .died {
+  visibility: hidden;
+}
+
+.level-2 input {
+  opacity: 0;
+  position: absolute;
+}
+
+.level-2-spell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: calc(var(--size) / 3);
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-duration: calc(var(--speed) * 4);
+  animation-delay: calc(var(--speed));
+  animation-name: l2-spell;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+  opacity: 0;
+}
+
+.level-2-spell::after {
+  content: "💦";
+}
+
+@keyframes l2-spell {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.level-2:valid .level-2-spell {
+  animation-play-state: running;
+}
+
+.level-2:focus-within:not(:valid) .message {
+  opacity: 1;
+}
+
+.level-2-fire {
+  position: relative;
+  width: calc(var(--size) / 2);
+  height: calc(var(--size) / 2);
+  transition: opacity 1s ease-out;
+  transition-duration: calc(var(--speed) / 4);
+  transition-delay: calc(var(--speed) / 2);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.level-2-fire::before,
+.level-2-fire::after {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  content: "🔥";
+  font-size: calc(var(--size) / 2);
+  transition: opacity calc(var(--speed) * 3) ease-out calc(var(--speed) * 3);
+}
+
+.level-2-fire::after {
+  content: "💨";
+  opacity: 0;
+}
+
+.level-2:focus-within .level-2-fire,
+.level-2:valid .level-2-fire {
+  opacity: 1;
+}
+
+.level-2:valid .level-2-fire::before {
+  opacity: 0;
+}
+
+.level-2:valid .level-2-fire::after {
+  opacity: 1;
+}
+
+.level-2:valid + * + .steps,
+.level-2:valid ~ .level-3 {
+  animation-play-state: running;
+  animation-delay: calc(var(--speed) * 3);
+}

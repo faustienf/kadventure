@@ -1,0 +1,8 @@
+.level-1:focus-visible + .steps,
+.level-1:focus-visible ~ .level-2 {
+  animation-play-state: running;
+}
+
+.level-1:focus-visible ~ .wizard {
+  left: 0;
+}
