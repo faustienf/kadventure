@@ -8,7 +8,7 @@
   border-radius: 4px;
   position: absolute;
   left: 0;
-  bottom: 125%;
+  bottom: 140%;
   white-space: nowrap;
   opacity: 0;
   transition: opacity var(--speed) ease-out calc(var(--speed) * 2);
