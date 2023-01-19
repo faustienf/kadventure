@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="/steps.css" />
     <link rel="stylesheet" href="/message.css" />
+    <link rel="stylesheet" href="/level-0.css" />
     <link rel="stylesheet" href="/level-1.css" />
     <link rel="stylesheet" href="/level-2.css" />
     <link rel="stylesheet" href="/level-3.css" />
@@ -17,14 +18,23 @@
   <body>
     <main>
       <section>
+        <div class="level-0">
+          <span class="message">
+            Добро пожаловать в Kadventure!
+            <br />
+            Пройдите игру, используя ТОЛЬКО клавиатуру ⌨️.
+          </span>
+          <button autofocus></button>
+        </div>
+
         <button class="level level-1"></button>
-    
+
         <ul class="steps">
           <li></li>
           <li></li>
           <li></li>
         </ul>
-    
+
         <form class="level-2" autocomplete="off">
           <span class="level"></span>
           <input maxlength="5" required pattern="water|вода" />
@@ -38,66 +48,88 @@
           </span>
         </form>
         <a class="died" href="/"></a>
-    
+
         <ul class="steps">
           <li></li>
           <li></li>
           <li></li>
         </ul>
-    
+
         <button class="level level-3"></button>
-    
+
         <ul class="steps">
           <li></li>
           <li></li>
           <li></li>
         </ul>
-    
+
         <form class="level-4" autocomplete="off">
           <span class="level"></span>
-    
+
           <span class="message">
             Хм..🤔 Похоже на древний замок 4х стихий 🌀.
             <br />
             Если подобрать комбинацию, он может открыться.
           </span>
-    
+
           <div class="level-4-elements">
             <div class="level-4-trigram">
-              <input type="checkbox" class="level-4-element" value="earth" required checked />
+              <input
+                type="checkbox"
+                class="level-4-element"
+                value="earth"
+                required
+                checked
+              />
               <span data-id="earth">☷</span>
             </div>
             <div class="level-4-trigram">
-              <input type="checkbox" class="level-4-element" value="water" required />
+              <input
+                type="checkbox"
+                class="level-4-element"
+                value="water"
+                required
+              />
               <span data-id="water">☵</span>
             </div>
             <div class="level-4-trigram">
-              <input type="checkbox" class="level-4-element" value="wind" required />
+              <input
+                type="checkbox"
+                class="level-4-element"
+                value="wind"
+                required
+              />
               <span data-id="wind">☴</span>
             </div>
             <div class="level-4-trigram">
-              <input type="checkbox" class="level-4-element" value="fire" required checked />
+              <input
+                type="checkbox"
+                class="level-4-element"
+                value="fire"
+                required
+                checked
+              />
               <span data-id="fire">☲</span>
             </div>
           </div>
         </form>
-    
+
         <ul class="steps">
           <li></li>
           <li></li>
           <li></li>
         </ul>
-    
+
         <div class="next">
           <form action="success.html">
             <button type="submit"></button>
           </form>
         </div>
-    
+
         <span class="wizard">🧙‍♂️</span>
       </section>
     </main>
-    
+
     <a zindex="-1" class="refresh" href="/"> 🔄 </a>
   </body>
 </html>

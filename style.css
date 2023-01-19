@@ -55,7 +55,7 @@ section {
   line-height: 1;
   position: absolute;
   transition: left var(--speed) ease-out;
-  left: calc(var(--size) / 2 * -1);
+  left: calc(var(--size) / -2);
   top: 50%;
   transform: translate(-50%, -50%);
 }

@@ -1,0 +1,15 @@
+.level-0 {
+  position: absolute;
+  height: var(--size);
+  display: flex;
+  align-items: center;
+  left: calc(var(--size) / -1.25);
+}
+
+.level-0 button {
+  opacity: 0;
+}
+
+.level-0:focus-within .message {
+  opacity: 1;
+}
